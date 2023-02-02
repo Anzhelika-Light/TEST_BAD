@@ -10,6 +10,7 @@
 
 const str = "The Tao gave birth to machine language.  Machine language gave birth to the assembler. The assembler gave birth to the compiler.  Now there are ten thousand languages. Each language has its purpose, however humble.  Each language expresses the Yin and Yang of software.  Each language has its place within the Tao. But do not program in COBOL if you can avoid it. -- Geoffrey James, 'The Tao of Programming'";
 
+const findFirstUniqueLetter = (str) => {
 //Прибираємо зайві символи
 const words = str
     .replace(/\-+/, '')
@@ -57,3 +58,7 @@ console.log(lettersArr);
 // Шукаємо першу унікальну літеру в масиві літер 
 const uniqueLettersArr = lettersArr.filter((el, i, arr) => arr.indexOf(el) === arr.lastIndexOf(el));
 console.log(uniqueLettersArr[0]);
+return uniqueLettersArr[0];
+}
+
+findFirstUniqueLetter(str);
