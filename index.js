@@ -8,16 +8,34 @@ the Tao.
 But do not program in COBOL if you can avoid it.
         -- Geoffrey James, "The Tao of Programming"`;
 
+// const str = `C makes it easy for you to shoot yourself in the foot. C++ makes that harder, but when you do, it blows away your whole leg. (с) Bjarne Stroustrup`;
+
 const findFirstUniqueLetter = (str) => {
   //Прибираємо зайві символи і збираємо результат в масив
+  // Залишаємо \w [a-zA-Z0-9_]
   const wordsArr = str.replace(/\W/g, " ").toLowerCase().trim().split(" ");
-
+  // Залишаємо тільки латинські літери [a-zA-Z]
+  // const wordsArr = str
+  //   .replace(/[^a-z]/gi, " ")
+  //   .toLowerCase()
+  //   .trim()
+  //   .split(" ");
+  // Враховуємо кириличні символи
+  // const wordsArr = str
+  //   .replace(/[^a-zа-я]/gi, " ")
+  //   .toLowerCase()
+  //   .trim()
+  //   .split(" ");
+  // Використовуємо багатомовний аналог \w
+  // const wordsArr = str
+  //   .replace(/[^\p{Alpha}\p{M}\p{Nd}\p{Pc}\p{Join_C}]/giu, " ")
+  //   .toLowerCase()
+  //   .trim()
+  //   .split(" ");
   console.log(wordsArr);
   // Прибираємо з нього пусті рядки, отримаємо кінцевий масив слів
-const newWordsArr = wordsArr.filter(
-  (word => word !== '')
-);
-console.log(newWordsArr);
+  const newWordsArr = wordsArr.filter((word) => word !== "");
+  console.log(newWordsArr);
 
   // Прибираємо повтори, залишаємо лише унікальні слова
   const uniqueWords = new Set(newWordsArr);
